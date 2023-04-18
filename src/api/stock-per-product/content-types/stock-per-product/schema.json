@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stock_per_products",
+  "info": {
+    "singularName": "stock-per-product",
+    "pluralName": "stock-per-products",
+    "displayName": "StockPerProduct"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product",
+      "inversedBy": "stock_per_product"
+    },
+    "stock_amount_per_product": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "sales_amount_per_product": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    }
+  }
+}

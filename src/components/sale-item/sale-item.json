@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sale_item_sale_items",
+  "info": {
+    "displayName": "SaleItem"
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "quantity": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "price": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    }
+  }
+}

@@ -1,0 +1,163 @@
+// @ts-check
+/**
+ * @typedef {{
+ * strapi: import("strapi").Strapi,
+ * key: string,
+ * ctx: import("strapi").Context
+ * populate?: string[],
+ * orderBy?: object,
+ * storeLocation?: string,
+ * }} IProps
+ */
+const OWNER = 'owner';
+const SELLER = 'seller';
+
+const isStoreOwner = ({ user, store }) => {
+  return user.role.type === OWNER && store.owner.id === user.id;
+};
+module.exports.isStoreOwner = isStoreOwner;
+
+const isStoreEmployee = ({ user, store }) => {
+  return user.role.type === SELLER && store.employees.includes(user.id);
+};
+module.exports.isStoreEmployee = isStoreEmployee;
+
+const createPopulateFromCtx = (ctx) => {
+  const query = ctx.query;
+  const queryPopulate =
+    typeof query.populate === 'string' ? [query.populate] : query.populate;
+
+  return queryPopulate;
+};
+module.exports.createPopulateFromCtx = createPopulateFromCtx;
+
+const STORE_LOCATIONS = {
+  STORE: 'store',
+  PRODUCT_STORE: 'product.store',
+  SALE_ITEMS_PRODUCT_STORE: 'sale_items.product.store',
+}
+
+module.exports.STORE_LOCATIONS = STORE_LOCATIONS;
+
+const getStore = ({ location, user }) => {
+  switch (location) {
+    case STORE_LOCATIONS.STORE: {
+      return {
+        store: {
+          $or: [
+            {
+              owner: {
+                id: user.id,
+              },
+            },
+            {
+              employees: [user.id],
+            },
+          ],
+        },
+      };
+    }
+    case STORE_LOCATIONS.PRODUCT_STORE: {
+      return {
+        product: getStore({
+          location: STORE_LOCATIONS.STORE,
+          user,
+        }),
+      };
+    }
+    case STORE_LOCATIONS.SALE_ITEMS_PRODUCT_STORE: {
+      return {
+        sale_items: getStore({
+          location: STORE_LOCATIONS.PRODUCT_STORE,
+          user
+        })
+      }
+    }
+    default:
+      break;
+  }
+};
+module.exports.getStore = getStore;
+
+/**
+ *
+ * @param {IProps} props
+ * @returns {Promise<any[]>}
+ */
+module.exports.findPageInStore = async ({
+  strapi,
+  key,
+  ctx,
+  populate,
+  orderBy,
+  storeLocation,
+}) => {
+  const user = ctx.state.user;
+  const query = ctx.query;
+  const ctxPopulate = createPopulateFromCtx(ctx);
+
+  const queryObj = {
+    where: {
+      $and: [
+        getStore({
+          location: storeLocation || STORE_LOCATIONS.STORE,
+          user,
+        }),
+        {
+          ...query.filters,
+        },
+      ],
+    },
+    populate: ctxPopulate || populate || [],
+    orderBy: query.sort ||
+      orderBy || {
+        id: 'desc',
+      },
+  };
+  console.log(
+    '🚀 ~ file: utils.js:73 ~ module.exports.findPageInStore= ~ queryObj:',
+    JSON.stringify(queryObj, null, 2)
+  );
+
+  return await strapi.db.query(key).findPage(queryObj);
+};
+
+/**
+ *
+ * @param {IProps} props
+ * @returns {Promise<any[]>}
+ */
+module.exports.findOneInStore = async ({
+  strapi,
+  key,
+  ctx,
+  populate,
+  storeLocation,
+}) => {
+  const user = ctx.state.user;
+  const query = ctx.query;
+  const queryPopulate =
+    typeof query.populate === 'string' ? [query.populate] : query.populate;
+
+  return await strapi.db.query(key).findOne({
+    where: {
+      $and: [
+        {
+          id: ctx.params.id,
+        },
+        getStore({
+          location: storeLocation || STORE_LOCATIONS.STORE,
+          user,
+        }),
+        {
+          ...query.filters,
+        },
+      ],
+    },
+    populate: queryPopulate || populate || [],
+  });
+};
+
+module.exports.createControllerKey = (collectionName) => {
+  return `api::${collectionName}.${collectionName}`;
+};

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_product_sold_product_solds",
+  "info": {
+    "displayName": "ProductSold"
+  },
+  "options": {},
+  "attributes": {
+    "quantity": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    }
+  }
+}

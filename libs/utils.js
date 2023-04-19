@@ -7,6 +7,8 @@
  * populate?: string[],
  * orderBy?: object,
  * storeLocation?: string,
+ * filters?: object,
+ * limit?: number,
  * }} IProps
  */
 const OWNER = 'owner';
@@ -32,29 +34,36 @@ const createPopulateFromCtx = (ctx) => {
 module.exports.createPopulateFromCtx = createPopulateFromCtx;
 
 const STORE_LOCATIONS = {
+  ROOT: 'root',
   STORE: 'store',
   PRODUCT_STORE: 'product.store',
   SALE_ITEMS_PRODUCT_STORE: 'sale_items.product.store',
-}
+};
 
 module.exports.STORE_LOCATIONS = STORE_LOCATIONS;
 
 const getStore = ({ location, user }) => {
   switch (location) {
+    case STORE_LOCATIONS.ROOT: {
+      return {
+        $or: [
+          {
+            owner: {
+              id: user.id,
+            },
+          },
+          {
+            employees: [user.id],
+          },
+        ],
+      };
+    }
     case STORE_LOCATIONS.STORE: {
       return {
-        store: {
-          $or: [
-            {
-              owner: {
-                id: user.id,
-              },
-            },
-            {
-              employees: [user.id],
-            },
-          ],
-        },
+        store: getStore({
+          location: STORE_LOCATIONS.ROOT,
+          user,
+        }),
       };
     }
     case STORE_LOCATIONS.PRODUCT_STORE: {
@@ -69,9 +78,9 @@ const getStore = ({ location, user }) => {
       return {
         sale_items: getStore({
           location: STORE_LOCATIONS.PRODUCT_STORE,
-          user
-        })
-      }
+          user,
+        }),
+      };
     }
     default:
       break;
@@ -91,6 +100,8 @@ module.exports.findPageInStore = async ({
   populate,
   orderBy,
   storeLocation,
+  filters,
+  limit
 }) => {
   const user = ctx.state.user;
   const query = ctx.query;
@@ -104,7 +115,7 @@ module.exports.findPageInStore = async ({
           user,
         }),
         {
-          ...query.filters,
+          ...(query.filters || filters || {}),
         },
       ],
     },
@@ -113,11 +124,8 @@ module.exports.findPageInStore = async ({
       orderBy || {
         id: 'desc',
       },
+    limit: query.limit || limit || 10,
   };
-  console.log(
-    '🚀 ~ file: utils.js:73 ~ module.exports.findPageInStore= ~ queryObj:',
-    JSON.stringify(queryObj, null, 2)
-  );
 
   return await strapi.db.query(key).findPage(queryObj);
 };
@@ -125,7 +133,7 @@ module.exports.findPageInStore = async ({
 /**
  *
  * @param {IProps} props
- * @returns {Promise<any[]>}
+ * @returns {Promise<any>}
  */
 module.exports.findOneInStore = async ({
   strapi,

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cash_balances",
+  "info": {
+    "singularName": "cash-balance",
+    "pluralName": "cash-balances",
+    "displayName": "CashBalance",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total_amount": {
+      "type": "decimal",
+      "min": 0,
+      "default": 0
+    },
+    "products_sold": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product-sold.product-sold"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store.store",
+      "inversedBy": "cash_balances"
+    },
+    "lastSaleId": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    }
+  }
+}

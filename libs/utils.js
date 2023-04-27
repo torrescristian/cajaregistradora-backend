@@ -169,3 +169,9 @@ module.exports.findOneInStore = async ({
 module.exports.createControllerKey = (collectionName) => {
   return `api::${collectionName}.${collectionName}`;
 };
+
+module.exports.delay = (ms) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}

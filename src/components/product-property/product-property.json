@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_product_property_product_properties",
+  "info": {
+    "displayName": "ProductProperty"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "string",
+        "boolean",
+        "integer",
+        "decimal"
+      ]
+    }
+  }
+}

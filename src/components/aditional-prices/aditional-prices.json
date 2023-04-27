@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_aditional_prices_aditional_prices",
+  "info": {
+    "displayName": "aditional-prices"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "decimal",
+      "min": 0
+    }
+  }
+}

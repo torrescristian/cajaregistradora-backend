@@ -42,6 +42,11 @@
     "isService": {
       "type": "boolean",
       "default": false
+    },
+    "aditional_prices": {
+      "type": "component",
+      "repeatable": true,
+      "component": "aditional-prices.aditional-prices"
     }
   }
 }

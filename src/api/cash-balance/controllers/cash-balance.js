@@ -4,6 +4,7 @@
 const {
   createControllerKey,
   findPageInStore,
+  delay,
 } = require('../../../../libs/utils');
 
 /**
@@ -52,6 +53,8 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
     });
 
     const [lastCashBalance] = lastCashBalancePage.results;
+
+    await delay(5000);
 
     const salesPage = await findPageInStore({
       ctx,

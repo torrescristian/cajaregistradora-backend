@@ -30,15 +30,15 @@
     },
     "parent": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::category.category",
-      "inversedBy": "child"
+      "inversedBy": "children"
     },
-    "child": {
+    "children": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::category.category",
-      "inversedBy": "parent"
+      "mappedBy": "parent"
     }
   }
 }

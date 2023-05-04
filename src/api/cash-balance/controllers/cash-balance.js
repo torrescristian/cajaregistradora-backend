@@ -94,7 +94,7 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       return (
         acc +
         sale.sale_items.reduce((acc, saleItem) => {
-          return acc + saleItem.product.price * saleItem.quantity;
+          return acc + saleItem.price * saleItem.quantity;
         }, 0)
       );
     }, 0);

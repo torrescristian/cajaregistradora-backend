@@ -8,7 +8,6 @@
  * orderBy?: object,
  * storeLocation?: string,
  * filters?: object,
- * limit?: number,
  * }} IProps
  */
 const OWNER = 'owner';
@@ -101,7 +100,6 @@ module.exports.findPageInStore = async ({
   orderBy,
   storeLocation,
   filters,
-  limit
 }) => {
   const user = ctx.state.user;
   const query = ctx.query;
@@ -124,7 +122,8 @@ module.exports.findPageInStore = async ({
       orderBy || {
         id: 'desc',
       },
-    limit: query.limit || limit || 10,
+    page: Number(query.page) || 1,
+    pageSize: Number(query.pageSize) || 10,
   };
 
   return await strapi.db.query(key).findPage(queryObj);

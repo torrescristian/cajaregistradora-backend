@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mis_gastos_tags",
+  "info": {
+    "singularName": "mis-gastos-tag",
+    "pluralName": "mis-gastos-tags",
+    "displayName": "MisGastos-Tag",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "expenses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mis-gastos-expense.mis-gastos-expense",
+      "inversedBy": "tags"
+    }
+  }
+}

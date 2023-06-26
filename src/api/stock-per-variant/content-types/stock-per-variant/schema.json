@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stock_per_variants",
+  "info": {
+    "singularName": "stock-per-variant",
+    "pluralName": "stock-per-variants",
+    "displayName": "StockPerVariant"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "variant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::variant.variant",
+      "inversedBy": "stock_per_variant"
+    },
+    "stock_amount_per_variant": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "sales_amount_per_variant": {
+      "type": "integer",
+      "default": 0,
+      "unique": false,
+      "min": 0
+    }
+  }
+}

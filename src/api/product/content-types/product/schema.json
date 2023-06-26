@@ -16,11 +16,6 @@
       "type": "string",
       "required": true
     },
-    "price": {
-      "type": "decimal",
-      "default": 0,
-      "min": 0
-    },
     "stock_per_product": {
       "type": "relation",
       "relation": "oneToOne",
@@ -43,16 +38,23 @@
       "type": "boolean",
       "default": false
     },
-    "aditional_prices": {
-      "type": "component",
-      "repeatable": true,
-      "component": "aditional-prices.aditional-prices"
-    },
     "variants": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::variant.variant",
       "mappedBy": "product"
+    },
+    "public_price": {
+      "type": "decimal"
+    },
+    "wholesale_price": {
+      "type": "decimal"
+    },
+    "catalog_price": {
+      "type": "decimal"
+    },
+    "special_price": {
+      "type": "decimal"
     }
   }
 }

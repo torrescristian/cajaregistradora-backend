@@ -69,11 +69,10 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       orderBy: {
         id: 'desc',
       },
-      limit: 1000000,
       filters: lastCashBalance
         ? {
             id: {
-              $gt: lastCashBalance.id,
+              $gt: lastCashBalance.lastSaleId,
             },
           }
         : {},

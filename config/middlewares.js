@@ -19,7 +19,7 @@ module.exports = [
     config: {
       enabled: true,
       headers: '*',
-      origin: ['http://localhost:3000', 'https://control.cajaregistradora.app', 'https://cajaregistradora.app']
+      origin: ['http://localhost:8888', 'https://control.cajaregistradora.app', 'https://cajaregistradora.app']
     }
   },
   // 'strapi::cors',

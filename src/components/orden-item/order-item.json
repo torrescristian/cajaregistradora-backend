@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_orden_item_order_items",
+  "info": {
+    "displayName": "order-item",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}

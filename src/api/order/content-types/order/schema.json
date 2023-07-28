@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total_price": {
+      "type": "decimal"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "orden-item.order-item"
+    },
+    "last_updated": {
+      "type": "datetime"
+    }
+  }
+}

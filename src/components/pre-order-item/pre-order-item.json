@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_pre_order_item_pre_order_items",
+  "info": {
+    "displayName": "Pre-Order-Item",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}

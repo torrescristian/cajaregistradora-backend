@@ -22,6 +22,11 @@
     },
     "last_updated": {
       "type": "datetime"
+    },
+    "client": {
+      "type": "component",
+      "repeatable": true,
+      "component": "client.client"
     }
   }
 }

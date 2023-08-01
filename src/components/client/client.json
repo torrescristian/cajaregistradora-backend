@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_client_clients",
+  "info": {
+    "displayName": "client"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": false,
+      "required": false
+    },
+    "phone_number": {
+      "type": "string"
+    }
+  }
+}

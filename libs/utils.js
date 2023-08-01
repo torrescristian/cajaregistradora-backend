@@ -37,6 +37,8 @@ const STORE_LOCATIONS = {
   STORE: 'store',
   PRODUCT_STORE: 'product.store',
   SALE_ITEMS_PRODUCT_STORE: 'sale_items.product.store',
+  ITEMS_PRODUCT_STORE: 'items.product.store',
+  ORDER_ITEMS_PRODUCT_STORE: 'order.items.product.store',
 };
 
 module.exports.STORE_LOCATIONS = STORE_LOCATIONS;
@@ -77,6 +79,22 @@ const getStore = ({ location, user }) => {
       return {
         sale_items: getStore({
           location: STORE_LOCATIONS.PRODUCT_STORE,
+          user,
+        }),
+      };
+    }
+    case STORE_LOCATIONS.ITEMS_PRODUCT_STORE: {
+      return {
+        items: getStore({
+          location: STORE_LOCATIONS.PRODUCT_STORE,
+          user,
+        }),
+      };
+    }
+    case STORE_LOCATIONS.ORDER_ITEMS_PRODUCT_STORE: {
+      return {
+        order: getStore({
+          location: STORE_LOCATIONS.ITEMS_PRODUCT_STORE,
           user,
         }),
       };

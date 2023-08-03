@@ -20,13 +20,10 @@
       "repeatable": true,
       "component": "orden-item.order-item"
     },
-    "last_updated": {
-      "type": "datetime"
-    },
     "client": {
-      "type": "component",
-      "repeatable": true,
-      "component": "client.client"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client"
     }
   }
 }

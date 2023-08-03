@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cashs",
+  "info": {
+    "singularName": "cash",
+    "pluralName": "cashs",
+    "displayName": "Cash"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime"
+    },
+    "current_amount": {
+      "type": "decimal",
+      "min": 0
+    },
+    "seller": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "initial_amount": {
+      "type": "decimal",
+      "min": 0
+    }
+  }
+}

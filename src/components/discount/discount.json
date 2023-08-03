@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_discount_discounts",
+  "info": {
+    "displayName": "discount"
+  },
+  "options": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "perc",
+        "fixed"
+      ]
+    }
+  }
+}

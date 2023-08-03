@@ -21,9 +21,13 @@
       "component": "orden-item.order-item"
     },
     "client": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::client.client"
+      "type": "component",
+      "repeatable": true,
+      "component": "client.client"
+    },
+    "additional_details": {
+      "type": "string",
+      "unique": false
     }
   }
 }

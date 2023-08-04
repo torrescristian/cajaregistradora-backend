@@ -4,7 +4,8 @@
   "info": {
     "singularName": "stock-per-product",
     "pluralName": "stock-per-products",
-    "displayName": "StockPerProduct"
+    "displayName": "StockPerProduct",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -17,12 +18,7 @@
       "target": "api::product.product",
       "inversedBy": "stock_per_product"
     },
-    "stock_amount_per_product": {
-      "type": "integer",
-      "min": 0,
-      "default": 0
-    },
-    "sales_amount_per_product": {
+    "stock": {
       "type": "integer",
       "min": 0,
       "default": 0

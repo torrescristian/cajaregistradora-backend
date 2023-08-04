@@ -28,6 +28,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::client.client"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "PENDING",
+        "PAID",
+        "CANCELED",
+        "WAITING_FOR_REFUND"
+      ]
     }
   }
 }

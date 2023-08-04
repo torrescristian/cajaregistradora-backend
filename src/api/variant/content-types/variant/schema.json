@@ -24,11 +24,12 @@
       "target": "api::stock-per-variant.stock-per-variant",
       "mappedBy": "variant"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "variants"
+    "price": {
+      "type": "decimal"
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }

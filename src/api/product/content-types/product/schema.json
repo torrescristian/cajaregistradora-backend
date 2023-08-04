@@ -16,12 +16,6 @@
       "type": "string",
       "required": true
     },
-    "stock_per_product": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::stock-per-product.stock-per-product",
-      "mappedBy": "product"
-    },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
@@ -44,18 +38,6 @@
       "target": "api::variant.variant",
       "mappedBy": "product"
     },
-    "public_price": {
-      "type": "decimal"
-    },
-    "wholesale_price": {
-      "type": "decimal"
-    },
-    "catalog_price": {
-      "type": "decimal"
-    },
-    "special_price": {
-      "type": "decimal"
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -64,10 +46,18 @@
         "images"
       ]
     },
-    "category": {
+    "default_variant": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::category.category"
+      "target": "api::variant.variant"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "PIZZA",
+        "HAMBURGER",
+        "SODA"
+      ]
     }
   }
 }

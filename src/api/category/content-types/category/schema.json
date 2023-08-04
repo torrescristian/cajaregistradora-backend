@@ -40,12 +40,6 @@
       "target": "api::category.category",
       "mappedBy": "parent"
     },
-    "variants": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::variant.variant",
-      "mappedBy": "categories"
-    },
     "emoji": {
       "type": "string"
     }

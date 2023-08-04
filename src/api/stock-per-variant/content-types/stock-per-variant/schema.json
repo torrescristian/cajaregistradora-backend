@@ -4,7 +4,8 @@
   "info": {
     "singularName": "stock-per-variant",
     "pluralName": "stock-per-variants",
-    "displayName": "StockPerVariant"
+    "displayName": "StockPerVariant",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -17,15 +18,9 @@
       "target": "api::variant.variant",
       "inversedBy": "stock_per_variant"
     },
-    "stock_amount_per_variant": {
+    "stock": {
       "type": "integer",
       "default": 0,
-      "min": 0
-    },
-    "sales_amount_per_variant": {
-      "type": "integer",
-      "default": 0,
-      "unique": false,
       "min": 0
     }
   }

@@ -34,7 +34,7 @@
       "enum": [
         "PENDING",
         "PAID",
-        "CANCELED",
+        "CANCELLED",
         "WAITING_FOR_REFUND"
       ]
     }

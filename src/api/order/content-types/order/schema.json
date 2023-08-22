@@ -37,6 +37,12 @@
         "CANCELLED",
         "WAITING_FOR_REFUND"
       ]
+    },
+    "address": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
     }
   }
 }

@@ -43,6 +43,11 @@
     },
     "phone_number": {
       "type": "string"
+    },
+    "discount": {
+      "type": "component",
+      "repeatable": true,
+      "component": "discount.discount"
     }
   }
 }

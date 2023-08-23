@@ -33,6 +33,12 @@
       "relation": "manyToOne",
       "target": "api::cash.cash",
       "inversedBy": "tickets"
+    },
+    "cash_balance": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cash-balance.cash-balance",
+      "inversedBy": "tickets"
     }
   }
 }

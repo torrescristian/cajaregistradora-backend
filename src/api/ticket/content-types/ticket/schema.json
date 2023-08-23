@@ -27,6 +27,12 @@
         "REFUNDED",
         "WAITING_FOR_REFUND"
       ]
+    },
+    "cash": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cash.cash",
+      "inversedBy": "tickets"
     }
   }
 }

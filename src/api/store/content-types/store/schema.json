@@ -33,12 +33,6 @@
       "target": "api::product.product",
       "mappedBy": "store"
     },
-    "cash_balances": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::cash-balance.cash-balance",
-      "mappedBy": "store"
-    },
     "categories": {
       "type": "relation",
       "relation": "oneToMany",

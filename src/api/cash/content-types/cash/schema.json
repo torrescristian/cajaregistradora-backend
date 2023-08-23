@@ -27,12 +27,6 @@
     "initial_amount": {
       "type": "decimal",
       "min": 0
-    },
-    "tickets": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ticket.ticket",
-      "mappedBy": "cash"
     }
   }
 }

@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "total_price": {
+    "totalPrice": {
       "type": "decimal"
     },
     "items": {
@@ -20,7 +20,7 @@
       "repeatable": true,
       "component": "orden-item.order-item"
     },
-    "additional_details": {
+    "additionalDetails": {
       "type": "string",
       "unique": false
     },
@@ -41,12 +41,12 @@
     "address": {
       "type": "string"
     },
-    "phone_number": {
+    "phoneNumber": {
       "type": "string"
     },
     "discount": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "discount.discount"
     }
   }

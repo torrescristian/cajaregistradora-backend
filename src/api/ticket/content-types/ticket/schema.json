@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "total_price": {
+    "totalPrice": {
       "type": "decimal"
     },
     "order": {
@@ -28,11 +28,16 @@
         "WAITING_FOR_REFUND"
       ]
     },
-    "cash_balance": {
+    "cashBalance": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::cash-balance.cash-balance",
       "inversedBy": "tickets"
+    },
+    "payments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "payment-type.payment"
     }
   }
 }

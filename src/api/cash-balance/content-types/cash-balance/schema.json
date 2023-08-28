@@ -32,7 +32,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::ticket.ticket",
-      "mappedBy": "cash_balance"
+      "mappedBy": "cashBalance"
     }
   }
 }

@@ -48,6 +48,9 @@
       "type": "component",
       "repeatable": false,
       "component": "discount.discount"
+    },
+    "subtotalPrice": {
+      "type": "decimal"
     }
   }
 }

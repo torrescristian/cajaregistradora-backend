@@ -33,6 +33,9 @@
       "relation": "oneToMany",
       "target": "api::ticket.ticket",
       "mappedBy": "cashBalance"
+    },
+    "totalAmount": {
+      "type": "decimal"
     }
   }
 }

@@ -61,37 +61,31 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
   },
 
   async create(ctx) {
-    const user = ctx.state.user;
+    const userId = ctx.state.user.id;
+
+    const store = await strapi.db.query(createControllerKey('store')).findOne({
+      where: {
+        $or: [
+          {
+            owner: {
+              id: userId,
+            },
+          },
+          {
+            employees: [userId],
+          },
+        ],
+      },
+    });
+
+    if (!store) {
+      return ctx.throw(404, 'Ticket not found');
+    }
+
+    ctx.request.body.data.store = store.id;
 
     // create product
     const createdProduct = await super.create(ctx);
-
-    // get store of owner
-    const store = await strapi.db.query(createControllerKey('store')).findOne({
-      where: {
-        owner: user.id,
-      },
-    });
-
-    const productId = createdProduct.data.id;
-    const storeId = store.id;
-
-    // set store in product
-    await strapi.db.query(createControllerKey('product')).update({
-      data: {
-        store: storeId,
-      },
-      where: {
-        id: productId,
-      },
-    });
-
-    // create stock-per-product and relate it to product
-    await strapi.db.query(createControllerKey('stock-per-product')).create({
-      data: {
-        product: productId,
-      },
-    });
 
     ctx.send(createdProduct);
   },

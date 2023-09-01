@@ -13,10 +13,23 @@ const MODEL = 'store';
 const CONTROLLER = createControllerKey(MODEL);
 
 module.exports = createCoreController(CONTROLLER, ({ strapi }) => ({
+  
   async find(ctx) {
+    const userId = ctx.state.user.id;
+  
     const store = await strapi.db.query(CONTROLLER).findPage({
       where: {
-        owner: ctx.state.user.id,
+        $or: [
+          {
+            owner: {
+              id: userId,
+            },
+          },
+          {
+            employees: [userId],
+          }
+
+        ]
       },
     });
 

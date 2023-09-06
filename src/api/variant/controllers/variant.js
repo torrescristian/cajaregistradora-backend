@@ -10,6 +10,7 @@ const {
   findPageInStore,
   findOneInStore,
   createControllerKey,
+  STORE_LOCATIONS,
 } = require('../../../../libs/utils');
 
 const CONTROLLER_KEY = createControllerKey('variant');
@@ -35,7 +36,7 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       key: CONTROLLER_KEY,
       ctx,
       populate,
-      storeLocation: 'product_store',
+      storeLocation: STORE_LOCATIONS.PRODUCT_STORE,
     });
 
     if (!product) {
@@ -51,6 +52,7 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       key: CONTROLLER_KEY,
       ctx,
       populate: [],
+      storeLocation: STORE_LOCATIONS.PRODUCT_STORE,
     });
 
     if (!variant) {

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coupons",
+  "info": {
+    "singularName": "coupon",
+    "pluralName": "coupons",
+    "displayName": "Coupon",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "ACTIVE",
+        "EXPIRED",
+        "USED"
+      ]
+    },
+    "dueDate": {
+      "type": "datetime"
+    },
+    "discount": {
+      "type": "component",
+      "repeatable": true,
+      "component": "discount.discount"
+    },
+    "limit": {
+      "type": "decimal"
+    }
+  }
+}

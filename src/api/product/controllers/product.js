@@ -20,7 +20,7 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       strapi,
       key: CONTROLLER_KEY,
       ctx,
-      populate: ['stock_per_product', 'categories'],
+      populate: ['categories'],
       orderBy: {
         name: 'asc',
       },
@@ -34,7 +34,7 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       strapi,
       key: CONTROLLER_KEY,
       ctx,
-      populate: ['stock_per_product', 'categories'],
+      populate: ['categories'],
     });
 
     if (!product) {
@@ -79,7 +79,7 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
     });
 
     if (!store) {
-      return ctx.throw(404, 'Ticket not found');
+      return ctx.throw(404, 'Store not found');
     }
 
     ctx.request.body.data.store = store.id;

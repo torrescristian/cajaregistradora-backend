@@ -2,7 +2,8 @@
   "collectionName": "components_orden_item_order_items",
   "info": {
     "displayName": "order-item",
-    "icon": "earth"
+    "icon": "earth",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,6 +17,11 @@
     },
     "price": {
       "type": "decimal"
+    },
+    "selectedVariant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::variant.variant"
     }
   }
 }

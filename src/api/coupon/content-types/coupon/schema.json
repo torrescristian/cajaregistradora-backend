@@ -15,29 +15,24 @@
     "code": {
       "type": "string"
     },
-    "product": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::product.product"
-    },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "ACTIVE",
-        "EXPIRED",
-        "USED"
-      ]
-    },
     "dueDate": {
       "type": "datetime"
     },
     "discount": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "discount.discount"
     },
-    "limit": {
+    "maxAmount": {
       "type": "decimal"
+    },
+    "variant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::variant.variant"
+    },
+    "availableUses": {
+      "type": "integer"
     }
   }
 }

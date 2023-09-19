@@ -51,6 +51,11 @@
     },
     "subtotalPrice": {
       "type": "decimal"
+    },
+    "coupon": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::coupon.coupon"
     }
   }
 }

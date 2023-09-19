@@ -38,6 +38,9 @@
       "type": "component",
       "repeatable": true,
       "component": "payment-type.payment"
+    },
+    "couponDiscount": {
+      "type": "decimal"
     }
   }
 }

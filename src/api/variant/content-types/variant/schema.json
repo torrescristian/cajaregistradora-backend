@@ -30,6 +30,9 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "minimum_stock": {
+      "type": "integer"
     }
   }
 }

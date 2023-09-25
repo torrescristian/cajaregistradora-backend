@@ -22,21 +22,6 @@
       "target": "api::store.store",
       "inversedBy": "categories"
     },
-    "parent": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "children"
-    },
-    "children": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "parent"
-    },
-    "emoji": {
-      "type": "string"
-    },
     "variants": {
       "type": "relation",
       "relation": "manyToMany",

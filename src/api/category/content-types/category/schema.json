@@ -16,12 +16,6 @@
       "type": "string",
       "required": true
     },
-    "products": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "inversedBy": "categories"
-    },
     "store": {
       "type": "relation",
       "relation": "manyToOne",
@@ -42,6 +36,12 @@
     },
     "emoji": {
       "type": "string"
+    },
+    "variants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::variant.variant",
+      "inversedBy": "categories"
     }
   }
 }

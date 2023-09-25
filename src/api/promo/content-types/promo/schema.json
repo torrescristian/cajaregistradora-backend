@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product"
-    },
     "categories": {
       "type": "relation",
       "relation": "oneToMany",
@@ -27,6 +22,11 @@
     },
     "name": {
       "type": "string"
+    },
+    "variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::variant.variant"
     }
   }
 }

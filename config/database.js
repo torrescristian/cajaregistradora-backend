@@ -9,5 +9,8 @@ module.exports = ({ env }) => ({
       password: env('PGPASSWORD', 'password'),
       ssl: env.bool(true),
     },
+    options: {
+      autoReconnect: true,
+    },
   },
 });

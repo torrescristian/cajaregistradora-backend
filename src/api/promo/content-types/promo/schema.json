@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promos",
+  "info": {
+    "singularName": "promo",
+    "pluralName": "promos",
+    "displayName": "Promo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_category_promo_caterogory_promos",
+  "info": {
+    "displayName": "CaterogoryPromo"
+  },
+  "options": {},
+  "attributes": {
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}

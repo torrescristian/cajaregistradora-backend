@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_variant_promo_variant_promos",
+  "info": {
+    "displayName": "Variant Promo"
+  },
+  "options": {},
+  "attributes": {
+    "variant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::variant.variant"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}

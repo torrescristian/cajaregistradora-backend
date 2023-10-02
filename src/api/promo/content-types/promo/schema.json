@@ -12,21 +12,21 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
-    },
     "price": {
       "type": "decimal"
     },
     "name": {
       "type": "string"
     },
+    "categories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "category-promo.caterogory-promo"
+    },
     "variants": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::variant.variant"
+      "type": "component",
+      "repeatable": true,
+      "component": "variant-promo.variant-promo"
     }
   }
 }

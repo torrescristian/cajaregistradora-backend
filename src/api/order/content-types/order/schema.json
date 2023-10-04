@@ -56,6 +56,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::coupon.coupon"
+    },
+    "promoItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "promo-item.promo-item"
     }
   }
 }

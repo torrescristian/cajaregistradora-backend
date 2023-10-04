@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_promo_item_promo_items",
+  "info": {
+    "displayName": "promo-item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "promo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::promo.promo"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "selectedVariants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::variant.variant"
+    }
+  }
+}

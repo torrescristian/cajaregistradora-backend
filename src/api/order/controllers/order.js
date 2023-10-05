@@ -1,3 +1,4 @@
+// @ts-check
 'use strict';
 
 const {
@@ -16,6 +17,16 @@ const CONTROLLER_KEY = createControllerKey(MODEL_KEY);
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
+const populate = [
+  'items',
+  'items.product',
+  'items.product',
+  'promoItems',
+  'promoItems.promo',
+  'promoItems.selectedVariants',
+]
+
+// @ts-ignore
 module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
   async create(ctx) {
     const userId = ctx.state.user.id;
@@ -49,14 +60,7 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       strapi,
       key: CONTROLLER_KEY,
       ctx,
-      populate: [
-        'items',
-        'items.product',
-        'items.product',
-        'promoItems',
-        'promoItems.promo',
-        'promoItems.selectedVarians',
-      ],
+      populate,
       orderBy: {
         id: 'desc',
       },
@@ -73,14 +77,7 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       strapi,
       key: CONTROLLER_KEY,
       ctx,
-      populate: [
-        'items',
-        'items.product',
-        'items.product',
-        'promoItems',
-        'promoItems.promo',
-        'promoItems.selectedVarians',
-      ],
+      populate,
     });
 
     if (!sale) {

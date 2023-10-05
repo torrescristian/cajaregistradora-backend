@@ -61,6 +61,11 @@
       "type": "component",
       "repeatable": true,
       "component": "promo-item.promo-item"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
     }
   }
 }

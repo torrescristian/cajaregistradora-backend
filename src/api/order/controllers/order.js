@@ -39,8 +39,6 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       return ctx.throw(404, 'Store not found');
     }
 
-    console.log('ctx.request.body.data', ctx.request.body.data)
-
     ctx.request.body.data.store = store.id;
     const createdOrder = await super.create(ctx);
 
@@ -51,11 +49,17 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       strapi,
       key: CONTROLLER_KEY,
       ctx,
-      populate: ['items', 'items.product', 'items.product.store'],
+      populate: [
+        'items',
+        'items.product',
+        'items.product',
+        'promoItems',
+        'promoItems.promo',
+        'promoItems.selectedVarians',
+      ],
       orderBy: {
         id: 'desc',
       },
-      storeLocation: 'items.product.store'
     });
 
     if (!sales) {
@@ -69,7 +73,14 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       strapi,
       key: CONTROLLER_KEY,
       ctx,
-      populate: ['items', 'items.product', 'items.product.store'],
+      populate: [
+        'items',
+        'items.product',
+        'items.product',
+        'promoItems',
+        'promoItems.promo',
+        'promoItems.selectedVarians',
+      ],
     });
 
     if (!sale) {
@@ -79,4 +90,3 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
     ctx.send(sale);
   },
 }));
-

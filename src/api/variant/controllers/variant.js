@@ -5,66 +5,42 @@
  * variant controller
  */
 
-const { createCoreController } = require('@strapi/strapi').factories;
 const {
+  createControllerKey,
   findPageInStore,
   findOneInStore,
-  createControllerKey,
-  STORE_LOCATIONS,
 } = require('../../../../libs/utils');
 
-const CONTROLLER_KEY = createControllerKey('variant');
+const MODEL_KEY = 'variant';
 
-const populate = ['product', 'stock_per_variant', 'categories', 'product.store', 'store'];
+const CONTROLLER_KEY = createControllerKey(MODEL_KEY);
+
+const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
-  async find(ctx) {
-    const products = await findPageInStore({
-      strapi,
-      key: CONTROLLER_KEY,
-      ctx,
-      populate,
-      storeLocation: 'product_store',
-    });
-
-    return ctx.send(products);
-  },
-
-  async findOne(ctx) {
-    const product = await findOneInStore({
-      strapi,
-      key: CONTROLLER_KEY,
-      ctx,
-      populate,
-      storeLocation: STORE_LOCATIONS.PRODUCT_STORE,
-    });
-
-    if (!product) {
-      return ctx.throw(404, 'Product not found');
-    }
-
-    return ctx.send(product);
-  },
-
-  async update(ctx) {
-    const variant = await findOneInStore({
-      strapi,
-      key: CONTROLLER_KEY,
-      ctx,
-      populate: [],
-      storeLocation: STORE_LOCATIONS.PRODUCT_STORE,
-    });
-
-    if (!variant) {
-      return ctx.throw(404, 'Variat not found');
-    }
-
-    const updatedVariant = await super.update(ctx);
-    ctx.send(updatedVariant);
-  },
-
   async create(ctx) {
-    // create product
+    const userId = ctx.state.user.id;
+
+    const store = await strapi.db.query(createControllerKey('store')).findOne({
+      where: {
+        $or: [
+          {
+            owner: {
+              id: userId,
+            },
+          },
+          {
+            employees: [userId],
+          },
+        ],
+      },
+    });
+
+    if (!store) {
+      return ctx.throw(404, 'Store not found');
+    }
+
+    ctx.request.body.data.store = store.id;
     const createdVariant = await super.create(ctx);
 
     const variantId = createdVariant.data.id;
@@ -72,9 +48,40 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
     await strapi.db.query(createControllerKey('stock-per-variant')).create({
       data: {
         variantId: variantId,
+        store: store.id
       },
     });
 
     ctx.send(createdVariant);
   },
+  async find(ctx) {
+    const variants = await findPageInStore({
+      strapi,
+      key: CONTROLLER_KEY,
+      ctx,
+      orderBy: {
+        id: 'desc',
+      },
+    });
+
+    if (!variants) {
+      return ctx.throw(404, 'Variants not found');
+    }
+
+    ctx.send(variants);
+  },
+  async findOne(ctx) {
+    const variant = await findOneInStore({
+      strapi,
+      key: CONTROLLER_KEY,
+      ctx,
+    });
+
+    if (!variant) {
+      return ctx.throw(404, 'Variant not found');
+    }
+
+    ctx.send(variant);
+  },
 }));
+

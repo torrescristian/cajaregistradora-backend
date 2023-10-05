@@ -33,6 +33,11 @@
     },
     "availableUses": {
       "type": "integer"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
     }
   }
 }

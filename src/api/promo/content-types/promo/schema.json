@@ -27,6 +27,11 @@
       "type": "component",
       "repeatable": true,
       "component": "variant-promo.variant-promo"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
     }
   }
 }

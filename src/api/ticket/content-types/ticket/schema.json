@@ -41,6 +41,11 @@
     },
     "couponDiscount": {
       "type": "decimal"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
     }
   }
 }

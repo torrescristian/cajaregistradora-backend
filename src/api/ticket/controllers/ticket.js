@@ -50,11 +50,9 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       strapi,
       key: CONTROLLER_KEY,
       ctx,
-      populate: ['order', 'order.items.product', 'order.items.product.store'],
       orderBy: {
         id: 'desc',
       },
-      storeLocation: 'order.items.product.store'
     });
 
     if (!sales) {
@@ -68,7 +66,6 @@ module.exports = createCoreController(CONTROLLER_KEY, ({ strapi }) => ({
       strapi,
       key: CONTROLLER_KEY,
       ctx,
-      populate: ['order', 'order.product', 'order.product.store'],
     });
 
     if (!sale) {

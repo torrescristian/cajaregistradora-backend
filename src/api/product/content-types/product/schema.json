@@ -46,12 +46,10 @@
       "target": "api::variant.variant"
     },
     "type": {
-      "type": "enumeration",
-      "enum": [
-        "PIZZA",
-        "HAMBURGER",
-        "SODA"
-      ]
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-type.product-type",
+      "inversedBy": "products"
     }
   }
 }

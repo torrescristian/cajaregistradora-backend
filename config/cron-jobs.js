@@ -39,7 +39,8 @@ module.exports = {
       console.log({ promises });
     },
     options: {
-      rule: '0 0 * * *',
+      // 6am UTC-3
+      rule: '0 9 * * *',
     },
   },
 };

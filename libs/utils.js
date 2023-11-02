@@ -141,7 +141,7 @@ module.exports.findPageInStore = async ({
         id: 'desc',
       },
     page: Number(query.page) || 1,
-    pageSize: Number(query.pageSize) || 100,
+    pageSize: Number(query.pageSize) || 10,
   };
 
   return await strapi.db.query(key).findPage(queryObj);

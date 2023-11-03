@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_types",
+  "info": {
+    "singularName": "product-type",
+    "pluralName": "product-types",
+    "displayName": "ProductType"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "emoji": {
+      "type": "string"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "type"
+    }
+  }
+}

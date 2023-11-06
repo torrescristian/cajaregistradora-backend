@@ -50,6 +50,13 @@
       "relation": "manyToOne",
       "target": "api::product-type.product-type",
       "inversedBy": "products"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ]
     }
   }
 }

@@ -38,7 +38,8 @@
       "enum": [
         "ENABLED",
         "DISABLED"
-      ]
+      ],
+      "default": "ENABLED"
     }
   }
 }

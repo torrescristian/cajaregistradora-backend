@@ -44,6 +44,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::store.store"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ]
     }
   }
 }

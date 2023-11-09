@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sync_records",
+  "info": {
+    "singularName": "sync-record",
+    "pluralName": "sync-records",
+    "displayName": "SyncRecord"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "collectionName": {
+      "type": "string"
+    },
+    "synced": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

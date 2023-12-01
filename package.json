@@ -14,7 +14,7 @@
     "@strapi/plugin-users-permissions": "4.13.7",
     "@strapi/provider-upload-cloudinary": "4.13.7",
     "@strapi/strapi": "4.13.6",
-    "pg": "8.8.0"
+    "pg": "8.11.3"
   },
   "author": {
     "name": "Cristian Torres <cristiantomastorres@gmail.com>"

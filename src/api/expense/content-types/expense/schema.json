@@ -19,11 +19,11 @@
       "type": "string",
       "required": true
     },
-    "cash_balances": {
+    "cashBalance": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::cash-balance.cash-balance",
-      "mappedBy": "expenses"
+      "inversedBy": "expenses"
     }
   }
 }

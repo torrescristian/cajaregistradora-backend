@@ -41,6 +41,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::store.store"
+    },
+    "expenses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::expense.expense",
+      "inversedBy": "cash_balances"
     }
   }
 }

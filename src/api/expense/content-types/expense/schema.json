@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "expenses",
+  "info": {
+    "singularName": "expense",
+    "pluralName": "expenses",
+    "displayName": "Expense"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "reason": {
+      "type": "string",
+      "required": true
+    },
+    "cash_balances": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cash-balance.cash-balance",
+      "mappedBy": "expenses"
+    }
+  }
+}

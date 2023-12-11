@@ -4,7 +4,8 @@
   "info": {
     "singularName": "expense",
     "pluralName": "expenses",
-    "displayName": "Expense"
+    "displayName": "Expense",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -24,6 +25,11 @@
       "relation": "manyToOne",
       "target": "api::cash-balance.cash-balance",
       "inversedBy": "expenses"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
     }
   }
 }

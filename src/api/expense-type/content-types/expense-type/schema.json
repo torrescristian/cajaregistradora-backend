@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "expense_types",
+  "info": {
+    "singularName": "expense-type",
+    "pluralName": "expense-types",
+    "displayName": "ExpenseType",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
+    }
+  }
+}

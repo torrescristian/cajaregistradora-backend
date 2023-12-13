@@ -30,6 +30,18 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::store.store"
+    },
+    "type": {
+      "type": "string",
+      "unique": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "APPROVED",
+        "PENDING",
+        "CANCELLED"
+      ]
     }
   }
 }

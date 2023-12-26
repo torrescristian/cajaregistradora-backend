@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_refunds_refunds",
+  "info": {
+    "displayName": "refunds",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "ticket": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ticket.ticket"
+    },
+    "paymentType": {
+      "type": "component",
+      "repeatable": false,
+      "component": "payment-type.payment"
+    }
+  }
+}

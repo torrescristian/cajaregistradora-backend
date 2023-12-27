@@ -58,6 +58,9 @@
         "DISABLED"
       ],
       "default": "ENABLED"
+    },
+    "description": {
+      "type": "string"
     }
   }
 }

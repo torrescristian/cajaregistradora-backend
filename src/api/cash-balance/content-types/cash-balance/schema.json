@@ -47,6 +47,15 @@
       "relation": "oneToMany",
       "target": "api::expense.expense",
       "mappedBy": "cashBalance"
+    },
+    "refunds": {
+      "displayName": "refunds",
+      "type": "component",
+      "repeatable": true,
+      "component": "refunds.refunds"
+    },
+    "digitalCashAmount": {
+      "type": "decimal"
     }
   }
 }

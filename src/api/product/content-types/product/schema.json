@@ -61,6 +61,18 @@
     },
     "description": {
       "type": "string"
+    },
+    "measureUnit": {
+      "type": "enumeration",
+      "enum": [
+        "UNIT",
+        "KILOGRAM",
+        "METER",
+        "LITER",
+        "PACKAGE",
+        "DOZEN",
+        "GRAM"
+      ]
     }
   }
 }

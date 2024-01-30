@@ -53,6 +53,9 @@
       "type": "component",
       "repeatable": true,
       "component": "refunds.refunds"
+    },
+    "digitalCashAmount": {
+      "type": "decimal"
     }
   }
 }

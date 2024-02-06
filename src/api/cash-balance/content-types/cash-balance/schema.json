@@ -56,6 +56,9 @@
     },
     "digitalCashAmount": {
       "type": "decimal"
+    },
+    "totalExpense": {
+      "type": "decimal"
     }
   }
 }

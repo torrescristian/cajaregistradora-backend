@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deposits",
+  "info": {
+    "singularName": "deposit",
+    "pluralName": "deposits",
+    "displayName": "Deposit"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "cashBalance": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cash-balance.cash-balance",
+      "inversedBy": "deposits"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
+    }
+  }
+}

@@ -66,6 +66,18 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::store.store"
+    },
+    "delivery": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::delivery.delivery",
+      "mappedBy": "order"
+    },
+    "table": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::table.table",
+      "mappedBy": "order"
     }
   }
 }

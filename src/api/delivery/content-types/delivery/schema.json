@@ -4,7 +4,8 @@
   "info": {
     "singularName": "delivery",
     "pluralName": "deliveries",
-    "displayName": "Delivery"
+    "displayName": "Delivery",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -31,6 +32,14 @@
         "DELIVERED",
         "CANCELLED"
       ]
+    },
+    "userPhone": {
+      "type": "richtext"
+    },
+    "client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client"
     }
   }
 }

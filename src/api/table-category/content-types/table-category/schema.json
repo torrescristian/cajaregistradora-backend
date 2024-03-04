@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "table_categories",
+  "info": {
+    "singularName": "table-category",
+    "pluralName": "table-categories",
+    "displayName": "TableCategory"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+}

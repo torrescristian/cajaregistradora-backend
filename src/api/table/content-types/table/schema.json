@@ -4,7 +4,8 @@
   "info": {
     "singularName": "table",
     "pluralName": "tables",
-    "displayName": "Table"
+    "displayName": "Table",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -27,6 +28,11 @@
         "FREE",
         "TAKEN"
       ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::table-category.table-category"
     }
   }
 }

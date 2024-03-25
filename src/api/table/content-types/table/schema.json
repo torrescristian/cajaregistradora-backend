@@ -33,6 +33,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::table-category.table-category"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
     }
   }
 }

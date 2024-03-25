@@ -40,6 +40,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::client.client"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
     }
   }
 }

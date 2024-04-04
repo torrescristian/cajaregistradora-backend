@@ -4,7 +4,8 @@
   "info": {
     "singularName": "table-category",
     "pluralName": "table-categories",
-    "displayName": "TableCategory"
+    "displayName": "TableCategory",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -16,6 +17,11 @@
     },
     "color": {
       "type": "string"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
     }
   }
 }
